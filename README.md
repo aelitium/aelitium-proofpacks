@@ -7,5 +7,5 @@ Each release contains:
 - Security closure documentation
 - E2E validation scripts
 
-**Current Release**: [v4.2.0-pilot-secure](https://github.com/aelitium/aelitium-proofpacks/releases/tag/v4.2.0-pilot-secure)
+**Current Release**: [v4.2.1-pilot-secure-clean](https://github.com/aelitium/aelitium-proofpacks/releases/tag/v4.2.1-pilot-secure-clean)
 
