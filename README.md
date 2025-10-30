@@ -3,11 +3,30 @@
 Technical artifacts repository for **independent validation and reproducibility** of ΛELITIUM releases.
 Each proof-pack is a **self-contained, deterministic build** including checksums, signatures, and validation scripts — designed for **independent technical review and audit**.
 
+---
+
+## What is AELITIUM?
+
+**ΛELITIUM** transforms complex business workflows into **transparent, auditable microservices**.
+It's designed for organizations that need to prove compliance, trace decisions, and ensure reproducibility across critical processes.
+
+**Core Value:** Anyone (compliance officer, auditor, CTO) can verify *how* a decision was made, *when*, and *why* — without reverse-engineering code.
+
+**Why Proof-Packs?**
+Each release is cryptographically signed and bit-for-bit reproducible. Independent validators can rebuild the entire stack from source, verify checksums, and confirm zero tampering between development and production.
+
+**Use Case Example:**
+A fintech validates loan approvals with full audit trails. Regulators can replay any decision from 6 months ago, see the exact logic applied, and verify no retroactive changes occurred.
+
+---
+
 ## Current Release
 
 **[v4.2.1-pilot-secure-clean](https://github.com/aelitium/aelitium-proofpacks/releases/tag/v4.2.1-pilot-secure-clean)**
 Clean proof-pack (no Python cache), reproducible TAR with fixed timestamps and sorted file order.
 Ready for CTO audit.
+
+---
 
 ## Quick Start
 
@@ -24,6 +43,34 @@ make db-migrate && make dev
 ./test-e2e-curls.sh
 ```
 
+---
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────┐
+│  ΛELITIUM Core Platform (v4.2.1)                    │
+└─────────────────────────────────────────────────────┘
+         │
+         ├── NEXUS       → Decision Logic Engine
+         ├── PRAGMA      → Policy Enforcement Layer
+         ├── SIGMA       → Risk Scoring & Analytics
+         ├── STEWARD     → Consent & Access Management
+         ├── AUDIT       → Immutable Event Logging
+         └── CORE        → Orchestration & API Gateway
+                │
+                ▼
+         PostgreSQL + SQLite
+```
+
+**Key Design Principles:**
+- Event-sourced architecture (every decision is logged)
+- Zero-trust inter-service communication
+- Cryptographic proof of build integrity
+- GDPR-compliant data management (export, deletion, redaction)
+
+---
+
 ## Contents
 
 Each release contains:
@@ -32,6 +79,8 @@ Each release contains:
 - CTO runbook with architecture overview (`CTO_RUNBOOK_QUICKFIX.md`)
 - E2E validation scripts and health checks
 - SHA256 checksums and GPG detached signatures
+
+---
 
 ## Verification
 
