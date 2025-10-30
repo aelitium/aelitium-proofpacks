@@ -64,8 +64,8 @@ make db-migrate && make dev
 ```
 
 **Key Design Principles:**
-- Event-sourced architecture (every decision is logged)
-- Zero-trust inter-service communication
+- Structured event logging with audit trail (every decision is recorded)
+- API key authentication with rate limiting and metrics
 - Cryptographic proof of build integrity
 - GDPR-compliant data management (export, deletion, redaction)
 
